@@ -1,4 +1,34 @@
-# React + TypeScript + Vite
+# Pokedex
+
+## Prerequisites
+
+- Follow the docker compose steps for: [PokeAPI](https://github.com/PokeAPI/pokeapi?tab=readme-ov-file).
+- I have the folder one directory out: `../pokeapi`.
+
+## GrapQL Console
+
+1. ensure docker is running
+2. `npm run server:start`
+3. `http:localhost:8080` - console endpoint
+4. password: `pokemon`
+
+- `http://localhost:8080/v1/graphql`: gql endpoint
+
+## Automatic GQL typing based on queries used + Schema
+
+Uses: [GraphQL-Codegen](https://the-guild.dev/graphql/codegen/docs/config-reference)
+
+```sh
+  "codegen:compile": "graphql-codegen",
+  "codegen:watch": "graphql-codegen -w"
+```
+
+Instead of `import { gql } from apollo` you import the generated version from `"./src/__generated__/gql.ts"`.
+
+- To make this easier I have aliased it as `"gql": ["./src/__generated__/gql.ts"]` in `tsconfig.json`.
+  This also requires the `vite-tsconfig-paths` plugin to work.
+
+## React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -17,12 +47,12 @@ If you are developing a production application, we recommend updating the config
 export default {
   // other rules...
   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
-}
+};
 ```
 
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
