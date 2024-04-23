@@ -1,6 +1,11 @@
 # Pokedex
 
-Fun little project to test out some ideas using the [PokeAPI GraphQLAPI](https://github.com/PokeAPI/pokeapi?tab=readme-ov-file).
+Fun little project to test out some ideas using the [PokeAPI GraphQL API](https://github.com/PokeAPI/pokeapi?tab=readme-ov-file).
+
+<p align="center" style="padding:16px;">
+  <img src="./docs/pokedex.png" alt="Pokedex" style="width:480px;height:480px;object-fit:cover;object-position: 100% 0;margin-right:16px;border-radius:5px;" />
+  <img src="./docs/pokedex.png" alt="Pokedex" style="width:480px;height:480px;object-fit:cover;object-position: 0 100%;border-radius:5px;" />
+</p>
 
 ## Contents
 
@@ -45,3 +50,10 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## Todo
+
+- [ ] pagination
+  - May need to write custom server logic to compose grapqh data together.
+- [ ] search?
+- [ ] 3d pokemon viewer

@@ -25,3 +25,8 @@ export const SPACING = {
   md: "16px",
   lg: "32px",
 };
+
+export const MEDIA = {
+  MOBILE: "@media only screen and (max-width: 768px)",
+  DESKTOP: "@media only screen and (min-width: 768px)",
+};

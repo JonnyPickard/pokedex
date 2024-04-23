@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "server:start": "cd ../pokeapi && docker-compose up -d && cd ../pokedex",
     "server:stop": "cd ../pokeapi && docker-compose down -d && cd ../pokedex",
-    "server:open-gql-console": "open http://localhost:8080",
+    "server:gql-console": "open http://localhost:8080",
     "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
     "codegen:compile": "graphql-codegen",
