@@ -21,7 +21,7 @@ Fun little project to test out some ideas using the [PokeAPI GraphQL API](https:
 ## GrapQL Console
 
 1. ensure docker is running
-2. `npm run server:start`
+2. `npm run docker:start`
 3. `http:localhost:8080` - console endpoint
 4. password: `pokemon`
 
