@@ -1,4 +1,5 @@
-export const PokemonItem = `#graphql
+export default {
+  typeDef: `#graphql
   type PokemonItem {
     id: Int
     url: String
@@ -7,4 +8,5 @@ export const PokemonItem = `#graphql
     artwork: String
     dreamworld: String
   }
-`;
+`,
+};

@@ -1,25 +1,8 @@
-import Pokedex from "pokedex-promise-v2";
+import { PokedexInstance } from "../services/pokedexAPI.ts";
 
-const options = {
-  protocol: "http",
-  hostName: "localhost",
-  versionPath: "/api/v2/",
-  cacheLimit: 100 * 1000, // 100s
-  timeout: 5 * 1000, // 5s
-};
+type NamesAndOrIds = Array<string | number>;
 
-// eslint-disable-next-line
-// @ts-ignore
-const P = new Pokedex(options);
-
-const getPokemonByName = () => {
-  P.getPokemonByName(["eevee", "ditto"]) // with Promise
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log("There was an ERROR: ", error);
-    });
-};
+export const getPokemonByName = async (name: NamesAndOrIds) =>
+  PokedexInstance.getPokemonByName(name);
 
 export default getPokemonByName;
