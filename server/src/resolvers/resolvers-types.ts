@@ -110,7 +110,7 @@ export type PokemonList = {
   params?: Maybe<Scalars['JSON']['output']>;
   prevOffset?: Maybe<Scalars['Int']['output']>;
   previous?: Maybe<Scalars['String']['output']>;
-  results?: Maybe<Array<Maybe<PokemonItem>>>;
+  results: Array<PokemonItem>;
   status?: Maybe<Scalars['Boolean']['output']>;
 };
 
@@ -388,7 +388,7 @@ export type PokemonListResolvers<ContextType = any, ParentType extends Resolvers
   params?: Resolver<Maybe<ResolversTypes['JSON']>, ParentType, ContextType>;
   prevOffset?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   previous?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  results?: Resolver<Maybe<Array<Maybe<ResolversTypes['PokemonItem']>>>, ParentType, ContextType>;
+  results?: Resolver<Array<ResolversTypes['PokemonItem']>, ParentType, ContextType>;
   status?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;

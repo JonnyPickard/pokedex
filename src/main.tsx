@@ -6,10 +6,7 @@ import App from "./App.tsx";
 import "./index.css";
 
 const client = new ApolloClient({
-  uri: "http://localhost:8080/v1/graphql",
-  headers: {
-    "x-hasura-admin-secret": "pokemon",
-  },
+  uri: "http://localhost:4000",
   cache: new InMemoryCache(),
 });
 

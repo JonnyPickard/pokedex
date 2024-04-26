@@ -115,7 +115,7 @@ type PokemonList {
   nextOffset: Int
   prevOffset: Int
   params: JSON
-  results: [PokemonItem]
+  results: [PokemonItem!]!
   status: Boolean
   message: String
 }

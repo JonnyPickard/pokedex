@@ -6,8 +6,6 @@ import resolvers from "./resolvers/index.ts";
 
 const typeDefs = readFileSync("./schema.graphql", "utf8");
 
-console.log(typeDefs);
-
 const server = new ApolloServer({
   typeDefs,
   resolvers,

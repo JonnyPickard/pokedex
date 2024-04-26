@@ -15,7 +15,7 @@
     "docker:gql-console": "open http://localhost:8080",
     "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
-    "codegen:server": "graphql-codegen --config ./server/codegen.ts",
+    "codegen:server": "graphql-codegen -w --config ./server/codegen.ts",
     "codegen:compile": "graphql-codegen",
     "codegen:watch": "graphql-codegen -w"
   },
