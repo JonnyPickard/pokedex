@@ -1,8 +1,6 @@
 import { PokedexInstance } from "../services/pokedexAPI.ts";
 
-type NamesAndOrIds = Array<string | number>;
-
-export const getPokemonByName = async (name: NamesAndOrIds) =>
+export const getPokemonByName = async (name: string) =>
   PokedexInstance.getPokemonByName(name);
 
 export default getPokemonByName;

@@ -1,7 +1,9 @@
 import { getPokemonByName } from "../requests/getPokemonByName.ts";
 
-// eslint-disable-next-line
-// @ts-ignore
-export default async (parent, params) => {
-  return getPokemonByName(params.name);
+interface GetPokemonByNameArgs {
+  name: string;
+}
+
+export default async <T>(parent: T, args: GetPokemonByNameArgs) => {
+  return getPokemonByName(args.name);
 };

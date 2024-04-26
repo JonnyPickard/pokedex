@@ -27,7 +27,26 @@ Fun little project to test out some ideas using the [PokeAPI GraphQL API](https:
 
 - `http://localhost:8080/v1/graphql`: gql endpoint
 
-## Automatic GQL typing based on queries used + Schema
+## Server
+
+### Automatic GQL typing based on queries used + Schema
+
+Followed this: [Generating types from a GraphQL schema](https://www.apollographql.com/docs/apollo-server/workflow/generate-types/)
+and this [Codegen Resolvers](https://the-guild.dev/graphql/codegen/plugins/typescript/typescript-resolvers)
+
+Uses `schema.grapqhl` to generate server types. In order to add more resolvers etc modify schema.graqphl
+
+```sh
+"codegen:server": "graphql-codegen --config ./server/codegen.ts",
+```
+
+> Note: Extra types are included incase I want to extend the functionality later.
+
+## Client
+
+### Automatic GQL typing based on queries used + Schema
+
+> Note: using a custom apollo-server config now so this will get changed.
 
 Uses: [GraphQL-Codegen](https://the-guild.dev/graphql/codegen/docs/config-reference)
 

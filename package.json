@@ -9,11 +9,13 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "server": "node --watch -r ts-node/register --loader ts-node/esm ./server/src/index.ts",
+    "server:debug": "node --watch --trace-warnings -r ts-node/register --loader ts-node/esm ./server/src/index.ts",
     "docker:start": "cd ../pokeapi && docker-compose up -d && cd ../pokedex",
     "docker:stop": "cd ../pokeapi && docker-compose down -d && cd ../pokedex",
     "docker:gql-console": "open http://localhost:8080",
     "format:check": "prettier . --check",
     "format:fix": "prettier . --write",
+    "codegen:server": "graphql-codegen --config ./server/codegen.ts",
     "codegen:compile": "graphql-codegen",
     "codegen:watch": "graphql-codegen -w"
   },
@@ -29,6 +31,8 @@
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.2",
     "@graphql-codegen/client-preset": "^4.2.5",
+    "@graphql-codegen/typescript": "^4.0.6",
+    "@graphql-codegen/typescript-resolvers": "^4.0.6",
     "@graphql-typed-document-node/core": "^3.2.0",
     "@parcel/watcher": "^2.4.1",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
