@@ -70,25 +70,25 @@ export type Move = {
 
 export type Pokemon = {
   __typename?: 'Pokemon';
-  abilities?: Maybe<Array<Maybe<Ability>>>;
+  abilities: Array<Ability>;
   base_experience?: Maybe<Scalars['Int']['output']>;
-  forms?: Maybe<Array<Maybe<BaseName>>>;
-  game_indices?: Maybe<Array<Maybe<GameIndex>>>;
-  height?: Maybe<Scalars['Int']['output']>;
-  held_items?: Maybe<Array<Maybe<HeldItem>>>;
-  id?: Maybe<Scalars['Int']['output']>;
-  is_default?: Maybe<Scalars['Boolean']['output']>;
-  location_area_encounters?: Maybe<Scalars['String']['output']>;
+  forms: Array<BaseName>;
+  game_indices: Array<GameIndex>;
+  height: Scalars['Int']['output'];
+  held_items: Array<HeldItem>;
+  id: Scalars['Int']['output'];
+  is_default: Scalars['Boolean']['output'];
+  location_area_encounters: Scalars['String']['output'];
   message?: Maybe<Scalars['String']['output']>;
-  moves?: Maybe<Array<Maybe<Move>>>;
-  name?: Maybe<Scalars['String']['output']>;
-  order?: Maybe<Scalars['Int']['output']>;
-  species?: Maybe<BaseName>;
-  sprites?: Maybe<Sprite>;
-  stats?: Maybe<Array<Maybe<Stat>>>;
+  moves: Array<Move>;
+  name: Scalars['String']['output'];
+  order: Scalars['Int']['output'];
+  species: BaseName;
+  sprites: Sprite;
+  stats: Array<Stat>;
   status?: Maybe<Scalars['Boolean']['output']>;
-  types?: Maybe<Array<Maybe<Type>>>;
-  weight?: Maybe<Scalars['Int']['output']>;
+  types: Array<Type>;
+  weight: Scalars['Int']['output'];
 };
 
 export type PokemonItem = {
@@ -97,13 +97,14 @@ export type PokemonItem = {
   dreamworld?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['Int']['output']>;
   image?: Maybe<Scalars['String']['output']>;
-  name?: Maybe<Scalars['String']['output']>;
+  name: Scalars['String']['output'];
   url?: Maybe<Scalars['String']['output']>;
 };
 
 export type PokemonList = {
   __typename?: 'PokemonList';
   count?: Maybe<Scalars['Int']['output']>;
+  extended_results?: Maybe<Array<Pokemon>>;
   message?: Maybe<Scalars['String']['output']>;
   next?: Maybe<Scalars['String']['output']>;
   nextOffset?: Maybe<Scalars['Int']['output']>;
@@ -348,25 +349,25 @@ export type MoveResolvers<ContextType = any, ParentType extends ResolversParentT
 }>;
 
 export type PokemonResolvers<ContextType = any, ParentType extends ResolversParentTypes['Pokemon'] = ResolversParentTypes['Pokemon']> = ResolversObject<{
-  abilities?: Resolver<Maybe<Array<Maybe<ResolversTypes['Ability']>>>, ParentType, ContextType>;
+  abilities?: Resolver<Array<ResolversTypes['Ability']>, ParentType, ContextType>;
   base_experience?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  forms?: Resolver<Maybe<Array<Maybe<ResolversTypes['BaseName']>>>, ParentType, ContextType>;
-  game_indices?: Resolver<Maybe<Array<Maybe<ResolversTypes['GameIndex']>>>, ParentType, ContextType>;
-  height?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  held_items?: Resolver<Maybe<Array<Maybe<ResolversTypes['HeldItem']>>>, ParentType, ContextType>;
-  id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  is_default?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
-  location_area_encounters?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  forms?: Resolver<Array<ResolversTypes['BaseName']>, ParentType, ContextType>;
+  game_indices?: Resolver<Array<ResolversTypes['GameIndex']>, ParentType, ContextType>;
+  height?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  held_items?: Resolver<Array<ResolversTypes['HeldItem']>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  is_default?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
+  location_area_encounters?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   message?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  moves?: Resolver<Maybe<Array<Maybe<ResolversTypes['Move']>>>, ParentType, ContextType>;
-  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  order?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  species?: Resolver<Maybe<ResolversTypes['BaseName']>, ParentType, ContextType>;
-  sprites?: Resolver<Maybe<ResolversTypes['Sprite']>, ParentType, ContextType>;
-  stats?: Resolver<Maybe<Array<Maybe<ResolversTypes['Stat']>>>, ParentType, ContextType>;
+  moves?: Resolver<Array<ResolversTypes['Move']>, ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  order?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
+  species?: Resolver<ResolversTypes['BaseName'], ParentType, ContextType>;
+  sprites?: Resolver<ResolversTypes['Sprite'], ParentType, ContextType>;
+  stats?: Resolver<Array<ResolversTypes['Stat']>, ParentType, ContextType>;
   status?: Resolver<Maybe<ResolversTypes['Boolean']>, ParentType, ContextType>;
-  types?: Resolver<Maybe<Array<Maybe<ResolversTypes['Type']>>>, ParentType, ContextType>;
-  weight?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  types?: Resolver<Array<ResolversTypes['Type']>, ParentType, ContextType>;
+  weight?: Resolver<ResolversTypes['Int'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
@@ -375,13 +376,14 @@ export type PokemonItemResolvers<ContextType = any, ParentType extends Resolvers
   dreamworld?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   id?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   image?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
-  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  name?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
   url?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 }>;
 
 export type PokemonListResolvers<ContextType = any, ParentType extends ResolversParentTypes['PokemonList'] = ResolversParentTypes['PokemonList']> = ResolversObject<{
   count?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
+  extended_results?: Resolver<Maybe<Array<ResolversTypes['Pokemon']>>, ParentType, ContextType>;
   message?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   next?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   nextOffset?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;

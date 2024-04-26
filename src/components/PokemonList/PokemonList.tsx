@@ -20,6 +20,10 @@ const GET_POKEMON = gql(`
         artwork
         dreamworld
       }
+      extended_results {
+        weight
+        height
+      }
       status
       message
     }
@@ -41,30 +45,33 @@ export function PokemonList() {
     <div>
       <h2>All Pokemon</h2>
       <ul css={styles.PokemonList}>
-        {data?.pokemons?.results?.map(
-          ({ name, id, /* weight, height, */ dreamworld }) => {
-            return (
-              <li css={styles.PokemonInfoCard} key={id}>
-                <h3>{name}</h3>
-                <img src={dreamworld!} />
-                <div css={styles.PokemonInfo}>
+        {data?.pokemons?.results?.map(({ name, id, dreamworld }, i) => {
+          const extendedResults = data.pokemons?.extended_results![i];
+          return (
+            <li css={styles.PokemonInfoCard} key={id}>
+              <h3>{name}</h3>
+              <img src={dreamworld!} />
+              <div css={styles.PokemonInfo}>
+                <p>
+                  <b>ID: </b>
+                  {id}
+                </p>
+                {extendedResults?.weight && (
                   <p>
-                    <b>ID: </b>
-                    {id}
-                  </p>
-                  {/* <p>
                     <b>Weight: </b>
-                    {`${weight && weight / 10} kg` || "N/A"}
+                    {`${extendedResults?.weight / 10} kg` || "N/A"}
                   </p>
+                )}
+                {extendedResults?.height && (
                   <p>
                     <b>Height: </b>
-                    {`${height && height * 10} cm` || "N/A"}
-                  </p> */}
-                </div>
-              </li>
-            );
-          },
-        )}
+                    {`${extendedResults?.height * 10} cm` || "N/A"}
+                  </p>
+                )}
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

@@ -70,25 +70,25 @@ export type Move = {
 
 export type Pokemon = {
   __typename?: 'Pokemon';
-  abilities?: Maybe<Array<Maybe<Ability>>>;
+  abilities: Array<Ability>;
   base_experience?: Maybe<Scalars['Int']['output']>;
-  forms?: Maybe<Array<Maybe<BaseName>>>;
-  game_indices?: Maybe<Array<Maybe<GameIndex>>>;
-  height?: Maybe<Scalars['Int']['output']>;
-  held_items?: Maybe<Array<Maybe<HeldItem>>>;
-  id?: Maybe<Scalars['Int']['output']>;
-  is_default?: Maybe<Scalars['Boolean']['output']>;
-  location_area_encounters?: Maybe<Scalars['String']['output']>;
+  forms: Array<BaseName>;
+  game_indices: Array<GameIndex>;
+  height: Scalars['Int']['output'];
+  held_items: Array<HeldItem>;
+  id: Scalars['Int']['output'];
+  is_default: Scalars['Boolean']['output'];
+  location_area_encounters: Scalars['String']['output'];
   message?: Maybe<Scalars['String']['output']>;
-  moves?: Maybe<Array<Maybe<Move>>>;
-  name?: Maybe<Scalars['String']['output']>;
-  order?: Maybe<Scalars['Int']['output']>;
-  species?: Maybe<BaseName>;
-  sprites?: Maybe<Sprite>;
-  stats?: Maybe<Array<Maybe<Stat>>>;
+  moves: Array<Move>;
+  name: Scalars['String']['output'];
+  order: Scalars['Int']['output'];
+  species: BaseName;
+  sprites: Sprite;
+  stats: Array<Stat>;
   status?: Maybe<Scalars['Boolean']['output']>;
-  types?: Maybe<Array<Maybe<Type>>>;
-  weight?: Maybe<Scalars['Int']['output']>;
+  types: Array<Type>;
+  weight: Scalars['Int']['output'];
 };
 
 export type PokemonItem = {
@@ -97,13 +97,14 @@ export type PokemonItem = {
   dreamworld?: Maybe<Scalars['String']['output']>;
   id?: Maybe<Scalars['Int']['output']>;
   image?: Maybe<Scalars['String']['output']>;
-  name?: Maybe<Scalars['String']['output']>;
+  name: Scalars['String']['output'];
   url?: Maybe<Scalars['String']['output']>;
 };
 
 export type PokemonList = {
   __typename?: 'PokemonList';
   count?: Maybe<Scalars['Int']['output']>;
+  extended_results?: Maybe<Array<Pokemon>>;
   message?: Maybe<Scalars['String']['output']>;
   next?: Maybe<Scalars['String']['output']>;
   nextOffset?: Maybe<Scalars['Int']['output']>;
@@ -175,7 +176,7 @@ export type PokemonsQueryVariables = Exact<{
 }>;
 
 
-export type PokemonsQuery = { __typename?: 'Query', pokemons?: { __typename?: 'PokemonList', count?: number | null, next?: string | null, previous?: string | null, nextOffset?: number | null, prevOffset?: number | null, params?: any | null, status?: boolean | null, message?: string | null, results: Array<{ __typename?: 'PokemonItem', image?: string | null, id?: number | null, name?: string | null, url?: string | null, artwork?: string | null, dreamworld?: string | null }> } | null };
+export type PokemonsQuery = { __typename?: 'Query', pokemons?: { __typename?: 'PokemonList', count?: number | null, next?: string | null, previous?: string | null, nextOffset?: number | null, prevOffset?: number | null, params?: any | null, status?: boolean | null, message?: string | null, results: Array<{ __typename?: 'PokemonItem', image?: string | null, id?: number | null, name: string, url?: string | null, artwork?: string | null, dreamworld?: string | null }>, extended_results?: Array<{ __typename?: 'Pokemon', weight: number, height: number }> | null } | null };
 
 
-export const PokemonsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Pokemons"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"offset"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pokemons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}},{"kind":"Argument","name":{"kind":"Name","value":"offset"},"value":{"kind":"Variable","name":{"kind":"Name","value":"offset"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"count"}},{"kind":"Field","name":{"kind":"Name","value":"next"}},{"kind":"Field","name":{"kind":"Name","value":"previous"}},{"kind":"Field","name":{"kind":"Name","value":"nextOffset"}},{"kind":"Field","name":{"kind":"Name","value":"prevOffset"}},{"kind":"Field","name":{"kind":"Name","value":"params"}},{"kind":"Field","name":{"kind":"Name","value":"results"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"artwork"}},{"kind":"Field","name":{"kind":"Name","value":"dreamworld"}}]}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"message"}}]}}]}}]} as unknown as DocumentNode<PokemonsQuery, PokemonsQueryVariables>;
+export const PokemonsDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"Pokemons"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"limit"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"offset"}},"type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"Int"}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"pokemons"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"limit"},"value":{"kind":"Variable","name":{"kind":"Name","value":"limit"}}},{"kind":"Argument","name":{"kind":"Name","value":"offset"},"value":{"kind":"Variable","name":{"kind":"Name","value":"offset"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"count"}},{"kind":"Field","name":{"kind":"Name","value":"next"}},{"kind":"Field","name":{"kind":"Name","value":"previous"}},{"kind":"Field","name":{"kind":"Name","value":"nextOffset"}},{"kind":"Field","name":{"kind":"Name","value":"prevOffset"}},{"kind":"Field","name":{"kind":"Name","value":"params"}},{"kind":"Field","name":{"kind":"Name","value":"results"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"artwork"}},{"kind":"Field","name":{"kind":"Name","value":"dreamworld"}}]}},{"kind":"Field","name":{"kind":"Name","value":"extended_results"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"weight"}},{"kind":"Field","name":{"kind":"Name","value":"height"}}]}},{"kind":"Field","name":{"kind":"Name","value":"status"}},{"kind":"Field","name":{"kind":"Name","value":"message"}}]}}]}}]} as unknown as DocumentNode<PokemonsQuery, PokemonsQueryVariables>;

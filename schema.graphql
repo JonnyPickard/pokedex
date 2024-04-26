@@ -78,23 +78,23 @@ type BaseName {
 }
 
 type Pokemon {
-  abilities: [Ability]
+  abilities: [Ability!]!
   base_experience: Int
-  forms: [BaseName]
-  game_indices: [GameIndex]
-  height: Int
-  held_items: [HeldItem]
-  id: Int
-  is_default: Boolean
-  location_area_encounters: String
-  moves: [Move]
-  name: String
-  order: Int
-  species: BaseName
-  sprites: Sprite
-  stats: [Stat]
-  types: [Type]
-  weight: Int
+  forms: [BaseName!]!
+  game_indices: [GameIndex!]!
+  height: Int!
+  held_items: [HeldItem!]!
+  id: Int!
+  is_default: Boolean!
+  location_area_encounters: String!
+  moves: [Move!]!
+  name: String!
+  order: Int!
+  species: BaseName!
+  sprites: Sprite!
+  stats: [Stat!]!
+  types: [Type!]!
+  weight: Int!
   status: Boolean
   message: String
 }
@@ -102,7 +102,7 @@ type Pokemon {
 type PokemonItem {
   id: Int
   url: String
-  name: String
+  name: String!
   image: String
   artwork: String
   dreamworld: String
@@ -118,6 +118,7 @@ type PokemonList {
   results: [PokemonItem!]!
   status: Boolean
   message: String
+  extended_results: [Pokemon!]
 }
 
 type Query {
