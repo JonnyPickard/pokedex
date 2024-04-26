@@ -50,7 +50,7 @@ export function PokemonList() {
           return (
             <li css={styles.PokemonInfoCard} key={id}>
               <h3>{name}</h3>
-              <img src={dreamworld!} />
+              <img src={dreamworld!} css={styles.PokemonImage} />
               <div css={styles.PokemonInfo}>
                 <p>
                   <b>ID: </b>
