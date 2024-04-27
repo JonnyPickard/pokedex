@@ -3,9 +3,9 @@
 Fun little project to test out some ideas using the [PokeAPI GraphQL API](https://github.com/PokeAPI/pokeapi?tab=readme-ov-file).
 
 <p align="center" style="padding:16px;">
-  <img src="./docs/designs/Pokedex.png" style="max-width:420px;" alt="Pokedex Designs" />
+  <img src="./docs/designs/pokedex.png" style="max-width:400px;" alt="Pokedex Designs" />
+  <blockquote align="center">Designs</blockquote>
 </p>
-<blockquote align="center">Designs</blockquote>
 
 ## Contents
 
