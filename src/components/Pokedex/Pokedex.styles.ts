@@ -25,3 +25,8 @@ export const Pokedex = css`
   border: 4px solid ${RED.default};
   border-radius: 43px;
 `;
+
+export const PokedexContent = css`
+  height: 100%;
+  overflow-y: scroll;
+`;
