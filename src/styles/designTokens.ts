@@ -17,6 +17,13 @@ export const COLORS = {
     almostWhite: "#eeeeee",
     white: "#ffffff",
   },
+  RED: {
+    default: "#DB2F3A",
+  },
+  BLUE: {
+    default: "#29AEB4",
+    dark: "#124B4E",
+  },
 };
 
 export const SPACING = {

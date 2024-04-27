@@ -1,9 +1,16 @@
+import { Camera } from "./Camera/Camera.tsx";
 import * as styles from "./Pokedex.styles.ts";
 
 export interface PokedexProps {
-  prop?: string;
+  children?: React.ReactNode;
 }
 
-export function Pokedex({ prop = "default value" }: PokedexProps) {
-  return <div css={styles.Pokedex}>Pokedex {prop}</div>;
+export function Pokedex({ children }: PokedexProps) {
+  return (
+    <div css={styles.Pokedex}>
+      <Camera />
+      <h1>Pokedex</h1>
+      {children}
+    </div>
+  );
 }

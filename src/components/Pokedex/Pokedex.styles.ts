@@ -1,17 +1,27 @@
 import { css } from "@emotion/react";
-import { COLORS, MEDIA, SPACING } from "design-tokens";
+import { COLORS } from "design-tokens";
 
-const { GRAYSCALE } = COLORS;
+const { GRAYSCALE, RED } = COLORS;
+
+const BALL_CAMERA_HEIGHT = 72;
+const IPHONE_PMAX_WIDTH = 430;
+const IPHONE_PMAX_HEIGHT = 932;
 
 export const Pokedex = css`
-  display: grid;
-  gap: ${SPACING.md};
-  list-style: none;
-  background: ${GRAYSCALE.shadedGray};
-  border-radius: 5px;
-  padding: ${SPACING.md};
+  overflow: hidden;
+  box-sizing: border-box;
+  position: relative;
 
-  ${MEDIA.DESKTOP} {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
+  width: ${IPHONE_PMAX_WIDTH}px;
+  height: ${IPHONE_PMAX_HEIGHT}px;
+  padding-top: ${BALL_CAMERA_HEIGHT}px;
+
+  background: linear-gradient(
+    180deg,
+    ${GRAYSCALE.almostBlack} 17.5%,
+    ${GRAYSCALE.black} 99.98%,
+    ${GRAYSCALE.shadedGray} 100%
+  );
+  border: 4px solid ${RED.default};
+  border-radius: 43px;
 `;

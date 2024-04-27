@@ -43,7 +43,7 @@ export function PokemonList() {
 
   return (
     <div>
-      <h2>All Pokemon</h2>
+      {/* <h2>All Pokemon</h2> */}
       <ul css={styles.PokemonList}>
         {data?.pokemons?.results?.map(({ name, id, dreamworld }, i) => {
           const extendedResults = data.pokemons?.extended_results![i];
