@@ -3,11 +3,17 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 // https://vitejs.dev/config/
-export default defineConfig({
+export default defineConfig(() => ({
   plugins: [
     react({
       jsxImportSource: "@emotion/react",
     }),
     tsconfigPaths(),
   ],
-});
+  test: {
+    environment: "jsdom",
+    setupFiles: ["./src/test/setup.ts"],
+    testMatch: ["./src/**/*.test.tsx"],
+    globals: true,
+  },
+}));

@@ -4,6 +4,7 @@
       "gql": ["./src/__generated__/gql.ts"],
       "design-tokens": ["./src/styles/designTokens.ts"]
     },
+    "types": ["vitest/globals", "@testing-library/jest-dom"],
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
