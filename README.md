@@ -3,21 +3,28 @@
 Fun little project to test out some ideas using the [PokeAPI GraphQL API](https://github.com/PokeAPI/pokeapi?tab=readme-ov-file).
 
 <p align="center" style="padding:16px;">
-  <img src="./docs/pokedex.png" alt="Pokedex" />
+  <img src="./docs/designs/Pokedex.png" style="max-width:420px;" alt="Pokedex Designs" />
 </p>
+<blockquote align="center">Designs</blockquote>
 
 ## Contents
 
 - [Prerequisites](#prerequisites)
+- [Quick Start](#quick-start)
 - [GrapQL Console](#grapql-console)
-- [Automatic GQL typing based on queries used + Schema](#automatic-gql-typing-based-on-queries-used-+-schema)
+- [Server](#server)
+  - [Codegen GQL TS types from Schema](#codegen-gql-ts-types-from-schema)
+- [Client](#client)
+  - [FE Codegen GQL TS types from schema](#fe-codegen-gql-ts-types-from-schema)
 - [React + TypeScript + Vite](#react-+-typescript-+-vite)
 
 ## Prerequisites
 
 - Follow the docker compose steps for: [PokeAPI](https://github.com/PokeAPI/pokeapi?tab=readme-ov-file)
-- I have the folder one directory out: `../pokeapi`
-- See the `npm run docker:start` script for more info
+- Place the PokeAPI project one directory out at: `../pokeapi`
+- Finally, ensure the docker engine is running on your machine
+
+> See the `npm run docker:start` script for more info
 
 ## Quick Start
 
@@ -27,15 +34,12 @@ Fun little project to test out some ideas using the [PokeAPI GraphQL API](https:
 ## GrapQL Console
 
 1. ensure docker is running
-2. `npm run docker:start`
-3. `http:localhost:8080` - console endpoint
-4. password: `pokemon`
-
-- `http://localhost:8080/v1/graphql`: gql endpoint
+2. `npm run server`
+3. `npm run server:console` - opens the apollo-server GQL console
 
 ## Server
 
-### Automatic GQL typing based on queries used + Schema
+### Codegen GQL TS types from Schema
 
 Followed this: [Generating types from a GraphQL schema](https://www.apollographql.com/docs/apollo-server/workflow/generate-types/)
 and this [Codegen Resolvers](https://the-guild.dev/graphql/codegen/plugins/typescript/typescript-resolvers)
@@ -50,7 +54,7 @@ Uses `schema.grapqhl` to generate server types. In order to add more resolvers e
 
 ## Client
 
-### Automatic GQL typing based on queries used + Schema
+### FE Codegen GQL TS types from schema
 
 > Note: using a custom apollo-server config now so this will get changed.
 
@@ -58,7 +62,6 @@ Uses: [GraphQL-Codegen](https://the-guild.dev/graphql/codegen/docs/config-refere
 
 ```sh
   "codegen:client": "graphql-codegen -w",
-  "codegen:compile": "graphql-codegen"
 ```
 
 Instead of `import { gql } from apollo` you import the generated version from `"./src/__generated__/gql.ts"`.
@@ -77,7 +80,9 @@ Currently, two official plugins are available:
 
 ## Todo
 
+- [x] basic designs
 - [ ] pagination
-  - May need to write custom server logic to compose grapqh data together.
+  - [x] server
+  - [ ] client
 - [ ] search?
 - [ ] 3d pokemon viewer
