@@ -17,23 +17,48 @@ Fun little project to test out some ideas using the [PokeAPI GraphQL API](https:
 
 - Follow the docker compose steps for: [PokeAPI](https://github.com/PokeAPI/pokeapi?tab=readme-ov-file)
 - I have the folder one directory out: `../pokeapi`
+- See the `npm run docker:start` script for more info
+
+## Quick Start
+
+1. `npm i`
+2. `npm start`
 
 ## GrapQL Console
 
 1. ensure docker is running
-2. `npm run server:start`
+2. `npm run docker:start`
 3. `http:localhost:8080` - console endpoint
 4. password: `pokemon`
 
 - `http://localhost:8080/v1/graphql`: gql endpoint
 
-## Automatic GQL typing based on queries used + Schema
+## Server
+
+### Automatic GQL typing based on queries used + Schema
+
+Followed this: [Generating types from a GraphQL schema](https://www.apollographql.com/docs/apollo-server/workflow/generate-types/)
+and this [Codegen Resolvers](https://the-guild.dev/graphql/codegen/plugins/typescript/typescript-resolvers)
+
+Uses `schema.grapqhl` to generate server types. In order to add more resolvers etc modify schema.graqphl
+
+```sh
+"codegen:server": "graphql-codegen --config ./server/codegen.ts",
+```
+
+> Note: Extra types are included incase I want to extend the functionality later.
+
+## Client
+
+### Automatic GQL typing based on queries used + Schema
+
+> Note: using a custom apollo-server config now so this will get changed.
 
 Uses: [GraphQL-Codegen](https://the-guild.dev/graphql/codegen/docs/config-reference)
 
 ```sh
-  "codegen:compile": "graphql-codegen",
-  "codegen:watch": "graphql-codegen -w"
+  "codegen:client": "graphql-codegen -w",
+  "codegen:compile": "graphql-codegen"
 ```
 
 Instead of `import { gql } from apollo` you import the generated version from `"./src/__generated__/gql.ts"`.
