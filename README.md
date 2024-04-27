@@ -17,6 +17,12 @@ Fun little project to test out some ideas using the [PokeAPI GraphQL API](https:
 
 - Follow the docker compose steps for: [PokeAPI](https://github.com/PokeAPI/pokeapi?tab=readme-ov-file)
 - I have the folder one directory out: `../pokeapi`
+- See the `npm run docker:start` script for more info
+
+## Quick Start
+
+1. `npm i`
+2. `npm start`
 
 ## GrapQL Console
 
@@ -51,8 +57,8 @@ Uses `schema.grapqhl` to generate server types. In order to add more resolvers e
 Uses: [GraphQL-Codegen](https://the-guild.dev/graphql/codegen/docs/config-reference)
 
 ```sh
-  "codegen:compile": "graphql-codegen",
-  "codegen:watch": "graphql-codegen -w"
+  "codegen:client": "graphql-codegen -w",
+  "codegen:compile": "graphql-codegen"
 ```
 
 Instead of `import { gql } from apollo` you import the generated version from `"./src/__generated__/gql.ts"`.
