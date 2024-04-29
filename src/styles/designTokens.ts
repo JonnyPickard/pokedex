@@ -17,6 +17,14 @@ export const COLORS = {
     almostWhite: "#eeeeee",
     white: "#ffffff",
   },
+  RED: {
+    default: "#DB2F3A",
+    light: "#CE2833",
+  },
+  BLUE: {
+    default: "#29AEB4",
+    dark: "#124B4E",
+  },
 };
 
 export const SPACING = {
@@ -24,6 +32,7 @@ export const SPACING = {
   sm: "8px",
   md: "16px",
   lg: "32px",
+  xl: "64px",
 };
 
 export const MEDIA = {

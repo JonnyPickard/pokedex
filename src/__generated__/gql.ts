@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\n  query Pokemons($limit: Int!, $offset: Int!) {\n    pokemons(limit: $limit, offset: $offset) {\n      count\n      next\n      previous\n      nextOffset\n      prevOffset\n      params\n      results {\n        image\n        id\n        name\n        url\n        artwork\n        dreamworld\n      }\n      extended_results {\n        weight\n        height\n      }\n      status\n      message\n    }\n  }\n": types.PokemonsDocument,
+    "\n  query Pokemons($limit: Int!, $offset: Int!) {\n    pokemons(limit: $limit, offset: $offset) {\n      count\n      next\n      previous\n      nextOffset\n      prevOffset\n      params\n      results {\n        image\n        id\n        name\n        url\n        artwork\n        dreamworld\n      }\n      extended_results {\n        id\n        weight\n        height\n      }\n      status\n      message\n    }\n  }\n": types.PokemonsDocument,
 };
 
 /**
@@ -33,7 +33,7 @@ export function gql(source: string): unknown;
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "\n  query Pokemons($limit: Int!, $offset: Int!) {\n    pokemons(limit: $limit, offset: $offset) {\n      count\n      next\n      previous\n      nextOffset\n      prevOffset\n      params\n      results {\n        image\n        id\n        name\n        url\n        artwork\n        dreamworld\n      }\n      extended_results {\n        weight\n        height\n      }\n      status\n      message\n    }\n  }\n"): (typeof documents)["\n  query Pokemons($limit: Int!, $offset: Int!) {\n    pokemons(limit: $limit, offset: $offset) {\n      count\n      next\n      previous\n      nextOffset\n      prevOffset\n      params\n      results {\n        image\n        id\n        name\n        url\n        artwork\n        dreamworld\n      }\n      extended_results {\n        weight\n        height\n      }\n      status\n      message\n    }\n  }\n"];
+export function gql(source: "\n  query Pokemons($limit: Int!, $offset: Int!) {\n    pokemons(limit: $limit, offset: $offset) {\n      count\n      next\n      previous\n      nextOffset\n      prevOffset\n      params\n      results {\n        image\n        id\n        name\n        url\n        artwork\n        dreamworld\n      }\n      extended_results {\n        id\n        weight\n        height\n      }\n      status\n      message\n    }\n  }\n"): (typeof documents)["\n  query Pokemons($limit: Int!, $offset: Int!) {\n    pokemons(limit: $limit, offset: $offset) {\n      count\n      next\n      previous\n      nextOffset\n      prevOffset\n      params\n      results {\n        image\n        id\n        name\n        url\n        artwork\n        dreamworld\n      }\n      extended_results {\n        id\n        weight\n        height\n      }\n      status\n      message\n    }\n  }\n"];
 
 export function gql(source: string) {
   return (documents as any)[source] ?? {};

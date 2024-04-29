@@ -40,6 +40,7 @@ export const getPokemonsList = async (limit = 9, offset = 0) => {
         nextOffset,
         prevOffset,
         results: responseWithImage,
+        extended_results: [],
         status: true,
         message: "",
       };
@@ -47,6 +48,7 @@ export const getPokemonsList = async (limit = 9, offset = 0) => {
 
     return {
       ...response,
+      extended_results: [],
       params: { limit, offset },
       status: true,
       message: "",

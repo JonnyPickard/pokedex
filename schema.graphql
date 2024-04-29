@@ -118,7 +118,7 @@ type PokemonList {
   results: [PokemonItem!]!
   status: Boolean
   message: String
-  extended_results: [Pokemon!]
+  extended_results: [Pokemon!]!
 }
 
 type Query {
