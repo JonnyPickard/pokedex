@@ -3,11 +3,7 @@ import { COLORS, SPACING } from "design-tokens";
 
 const { GRAYSCALE } = COLORS;
 
-export const IntersectingLoadMoreDiv = css`
-  min-height: ${SPACING.lg};
-`;
-
-export const PokemonList = css`
+export const PokemonListItem = css`
   display: grid;
   gap: ${SPACING.md};
   list-style: none;

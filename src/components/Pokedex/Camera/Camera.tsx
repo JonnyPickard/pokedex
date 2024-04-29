@@ -19,7 +19,7 @@ export function Camera() {
         r="69"
         fill={GRAYSCALE.shadedWhite}
         stroke={RED.default}
-        stroke-width="4"
+        strokeWidth="4"
       />
       <mask
         id="path-2-outside-1_8_18"
@@ -45,16 +45,16 @@ export function Camera() {
         r="28.5"
         fill={GRAYSCALE.black}
         stroke={RED.default}
-        stroke-width="2"
+        strokeWidth="2"
       />
       <rect x="1" y="3" width="140" height="7" fill={GRAYSCALE.black} />
-      <circle cx="71" r="69" stroke={RED.default} stroke-width="4" />
+      <circle cx="71" r="69" stroke={RED.default} strokeWidth="4" />
       <circle
         cx="57"
         cy="12"
         r="4.5"
         fill="url(#paint0_linear_8_18)"
-        fill-opacity="0.1"
+        fillOpacity="0.1"
         stroke="url(#paint1_linear_8_18)"
       />
       <circle
@@ -73,9 +73,9 @@ export function Camera() {
           y2="17"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.195" stop-color={GRAYSCALE.shadedWhite} />
-          <stop offset="0.505" stop-color={GRAYSCALE.mediumGray} />
-          <stop offset="0.88" stop-color={GRAYSCALE.paleGray} />
+          <stop offset="0.195" stopColor={GRAYSCALE.shadedWhite} />
+          <stop offset="0.505" stopColor={GRAYSCALE.mediumGray} />
+          <stop offset="0.88" stopColor={GRAYSCALE.paleGray} />
         </linearGradient>
         <linearGradient
           id="paint1_linear_8_18"
@@ -85,10 +85,10 @@ export function Camera() {
           y2="17"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.175" stop-color={GRAYSCALE.almostBlack} />
+          <stop offset="0.175" stopColor={GRAYSCALE.almostBlack} />
           <stop offset="0.9998" />
-          <stop offset="0.9999" stop-color={GRAYSCALE.shadedGray} />
-          <stop offset="1" stop-color={GRAYSCALE.shadedGray} />
+          <stop offset="0.9999" stopColor={GRAYSCALE.shadedGray} />
+          <stop offset="1" stopColor={GRAYSCALE.shadedGray} />
         </linearGradient>
         <linearGradient
           id="paint2_linear_8_18"
@@ -98,8 +98,8 @@ export function Camera() {
           y2="17"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color={BLUE.default} />
-          <stop offset="1" stop-color={BLUE.dark} />
+          <stop stopColor={BLUE.default} />
+          <stop offset="1" stopColor={BLUE.dark} />
         </linearGradient>
         <linearGradient
           id="paint3_linear_8_18"
@@ -109,10 +109,10 @@ export function Camera() {
           y2="17"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.175" stop-color={GRAYSCALE.almostBlack} />
+          <stop offset="0.175" stopColor={GRAYSCALE.almostBlack} />
           <stop offset="0.9998" />
-          <stop offset="0.9999" stop-color={GRAYSCALE.shadedGray} />
-          <stop offset="1" stop-color={GRAYSCALE.shadedGray} />
+          <stop offset="0.9999" stopColor={GRAYSCALE.shadedGray} />
+          <stop offset="1" stopColor={GRAYSCALE.shadedGray} />
         </linearGradient>
       </defs>
     </svg>

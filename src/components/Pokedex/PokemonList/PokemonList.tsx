@@ -1,6 +1,10 @@
 import { useQuery } from "@apollo/client";
 import { gql } from "gql";
+import { useEffect, useState } from "react";
+import { useIntersectionObserver } from "usehooks-ts";
 
+import { PokemonListItem } from "../PokemonListItem";
+import { Spinner } from "../Spinner";
 import * as styles from "./PokemonList.styles";
 
 const GET_POKEMON = gql(`
@@ -31,48 +35,84 @@ const GET_POKEMON = gql(`
 `);
 
 export function PokemonList() {
-  const { loading, error, data } = useQuery(GET_POKEMON, {
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
+  const { loading, error, data, fetchMore } = useQuery(GET_POKEMON, {
     variables: {
       limit: 9,
       offset: 0,
     },
   });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
+  const { isIntersecting, ref } = useIntersectionObserver({
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    if (isIntersecting && data?.pokemons?.results?.length) {
+      setIsLoadingMore(true);
+      fetchMore({
+        variables: {
+          limit: 9,
+          offset: data?.pokemons?.results?.length,
+        },
+        updateQuery: (previousResult, { fetchMoreResult }) => {
+          const newResults = fetchMoreResult.pokemons?.results || [];
+          const newExtendedResults =
+            fetchMoreResult.pokemons?.extended_results || [];
+          const prevResults = previousResult.pokemons?.results || [];
+          const prevExtendedResults =
+            previousResult.pokemons?.extended_results || [];
+
+          return {
+            pokemons: {
+              ...fetchMoreResult.pokemons,
+              results: [...prevResults, ...newResults],
+              extended_results: [...prevExtendedResults, ...newExtendedResults],
+            },
+          };
+        },
+      }).then(() => {
+        setIsLoadingMore(false);
+      });
+    }
+  }, [data?.pokemons?.results?.length, fetchMore, isIntersecting]);
+
+  if (loading) {
+    return <Spinner />;
+  }
+  if (error) {
+    return <p>Error : {error.message}</p>;
+  }
 
   return (
-    <div>
-      {/* <h2>All Pokemon</h2> */}
-      <ul css={styles.PokemonList}>
-        {data?.pokemons?.results?.map(({ name, id, dreamworld }, i) => {
-          const extendedResults = data.pokemons?.extended_results![i];
-          return (
-            <li css={styles.PokemonInfoCard} key={id}>
-              <h3>{name}</h3>
-              <img src={dreamworld!} css={styles.PokemonImage} />
-              <div css={styles.PokemonInfo}>
-                <p>
-                  <b>ID: </b>
-                  {id}
-                </p>
-                {extendedResults?.weight && (
-                  <p>
-                    <b>Weight: </b>
-                    {`${extendedResults?.weight / 10} kg` || "N/A"}
-                  </p>
-                )}
-                {extendedResults?.height && (
-                  <p>
-                    <b>Height: </b>
-                    {`${extendedResults?.height * 10} cm` || "N/A"}
-                  </p>
-                )}
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <>
+      {data?.pokemons?.results && (
+        <>
+          <ul css={styles.PokemonList}>
+            {data.pokemons.results.map(({ name, id, dreamworld }, i) => {
+              const extendedResults = data.pokemons?.extended_results![i];
+              const { weight, height } = extendedResults || {
+                weight: 0,
+                height: 0,
+              };
+
+              return (
+                <PokemonListItem
+                  key={id}
+                  id={id!}
+                  name={name}
+                  dreamworldUrl={dreamworld!}
+                  weight={weight}
+                  height={height}
+                />
+              );
+            })}
+          </ul>
+          <div css={styles.IntersectingLoadMoreDiv} ref={ref}>
+            {isLoadingMore && <Spinner />}
+          </div>
+        </>
+      )}
+    </>
   );
 }
