@@ -25,6 +25,7 @@ const GET_POKEMON = gql(`
         dreamworld
       }
       extended_results {
+        id
         weight
         height
       }

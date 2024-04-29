@@ -1,5 +1,6 @@
 /// <reference types="@emotion/react/types/css-prop" />
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { LocalStorageWrapper, persistCache } from "apollo3-cache-persist";
 import ReactDOM from "react-dom/client";
 
 import App from "./App.tsx";
@@ -26,6 +27,12 @@ const cache = new InMemoryCache({
       },
     },
   },
+});
+
+// await before instantiating ApolloClient, else queries might run before the cache is persisted
+await persistCache({
+  cache,
+  storage: new LocalStorageWrapper(window.localStorage),
 });
 
 const client = new ApolloClient({
