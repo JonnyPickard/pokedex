@@ -48,11 +48,10 @@ export function PokemonList() {
   });
 
   useEffect(() => {
-    if (isIntersecting && data?.pokemons?.results?.length) {
+    if (isIntersecting && !isLoadingMore && data?.pokemons?.results?.length) {
       setIsLoadingMore(true);
       fetchMore({
         variables: {
-          limit: 9,
           offset: data?.pokemons?.results?.length,
         },
         updateQuery: (previousResult, { fetchMoreResult }) => {
@@ -75,7 +74,12 @@ export function PokemonList() {
         setIsLoadingMore(false);
       });
     }
-  }, [data?.pokemons?.results?.length, fetchMore, isIntersecting]);
+  }, [
+    data?.pokemons?.results?.length,
+    fetchMore,
+    isIntersecting,
+    isLoadingMore,
+  ]);
 
   if (loading) {
     return <Spinner />;

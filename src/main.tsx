@@ -10,10 +10,6 @@ const cache = new InMemoryCache({
     Pokemons: {
       fields: {
         results: {
-          // Don't cache separate results based on
-          // any of this field's arguments.
-          keyArgs: false,
-
           // Concatenate the incoming list items with
           // the existing list items.
           merge(existing = [], incoming) {
@@ -21,10 +17,6 @@ const cache = new InMemoryCache({
           },
         },
         extended_results: {
-          // Don't cache separate results based on
-          // any of this field's arguments.
-          keyArgs: false,
-
           // Concatenate the incoming list items with
           // the existing list items.
           merge(existing = [], incoming) {
