@@ -10,7 +10,6 @@ export function Pokedex({ children }: PokedexProps) {
   return (
     <div css={styles.Pokedex}>
       <Camera />
-      {/* <h1>Pokedex</h1> */}
       <div css={styles.PokedexContent}>
         <PokemonList />
       </div>

@@ -104,7 +104,7 @@ export type PokemonItem = {
 export type PokemonList = {
   __typename?: 'PokemonList';
   count?: Maybe<Scalars['Int']['output']>;
-  extended_results?: Maybe<Array<Pokemon>>;
+  extended_results: Array<Pokemon>;
   message?: Maybe<Scalars['String']['output']>;
   next?: Maybe<Scalars['String']['output']>;
   nextOffset?: Maybe<Scalars['Int']['output']>;
@@ -383,7 +383,7 @@ export type PokemonItemResolvers<ContextType = any, ParentType extends Resolvers
 
 export type PokemonListResolvers<ContextType = any, ParentType extends ResolversParentTypes['PokemonList'] = ResolversParentTypes['PokemonList']> = ResolversObject<{
   count?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
-  extended_results?: Resolver<Maybe<Array<ResolversTypes['Pokemon']>>, ParentType, ContextType>;
+  extended_results?: Resolver<Array<ResolversTypes['Pokemon']>, ParentType, ContextType>;
   message?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   next?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   nextOffset?: Resolver<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;

@@ -37,37 +37,49 @@ const GET_POKEMON = gql(`
 
 export function PokemonList() {
   const [isLoadingMore, setIsLoadingMore] = useState(false);
-  const { loading, error, data, fetchMore } = useQuery(GET_POKEMON, {
-    variables: {
-      limit: 9,
-      offset: 0,
+  const { loading, error, data, fetchMore, networkStatus } = useQuery(
+    GET_POKEMON,
+    {
+      variables: {
+        limit: 9,
+        offset: 0,
+      },
     },
-  });
+  );
 
   const { isIntersecting, ref } = useIntersectionObserver({
     threshold: 0.5,
   });
 
   useEffect(() => {
-    if (isIntersecting && !isLoadingMore && data?.pokemons?.results?.length) {
+    if (
+      isIntersecting &&
+      !isLoadingMore &&
+      // Fetch More
+      networkStatus !== 3 &&
+      data?.pokemons?.results?.length
+    ) {
       setIsLoadingMore(true);
       fetchMore({
         variables: {
           offset: data?.pokemons?.results?.length,
         },
         updateQuery: (previousResult, { fetchMoreResult }) => {
-          const newResults = fetchMoreResult.pokemons?.results || [];
-          const newExtendedResults =
-            fetchMoreResult.pokemons?.extended_results || [];
-          const prevResults = previousResult.pokemons?.results || [];
-          const prevExtendedResults =
-            previousResult.pokemons?.extended_results || [];
+          const newPokemons = fetchMoreResult.pokemons;
+          const prevPokemons = previousResult.pokemons;
+
+          if (!newPokemons || !prevPokemons) {
+            return previousResult;
+          }
 
           return {
             pokemons: {
               ...fetchMoreResult.pokemons,
-              results: [...prevResults, ...newResults],
-              extended_results: [...prevExtendedResults, ...newExtendedResults],
+              results: [...prevPokemons.results, ...newPokemons.results],
+              extended_results: [
+                ...prevPokemons.extended_results,
+                ...newPokemons.extended_results,
+              ],
             },
           };
         },
@@ -80,6 +92,7 @@ export function PokemonList() {
     fetchMore,
     isIntersecting,
     isLoadingMore,
+    networkStatus,
   ]);
 
   if (loading) {

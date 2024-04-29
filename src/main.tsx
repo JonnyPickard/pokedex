@@ -18,6 +18,7 @@ const cache = new InMemoryCache({
           },
         },
         extended_results: {
+          keyArgs: false,
           // Concatenate the incoming list items with
           // the existing list items.
           merge(existing = [], incoming) {
@@ -29,11 +30,11 @@ const cache = new InMemoryCache({
   },
 });
 
-// await before instantiating ApolloClient, else queries might run before the cache is persisted
-await persistCache({
+// defer until after instantiating ApolloClient, else queries might run before the cache is persisted
+persistCache({
   cache,
   storage: new LocalStorageWrapper(window.localStorage),
-});
+}).then(() => {});
 
 const client = new ApolloClient({
   uri: "http://localhost:4000",
