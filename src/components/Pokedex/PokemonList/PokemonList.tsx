@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { gql } from "gql";
 import { useEffect, useState } from "react";
+import { VisuallyHidden } from "styles";
 import { useIntersectionObserver } from "usehooks-ts";
 
 import { PokemonListItem } from "../PokemonListItem";
@@ -106,6 +107,7 @@ export function PokemonList() {
     <>
       {data?.pokemons?.results && (
         <>
+          <h2 css={VisuallyHidden}>All Pokemon</h2>
           <ul css={styles.PokemonList}>
             {data.pokemons.results.map(({ name, id, dreamworld }, i) => {
               const extendedResults = data.pokemons?.extended_results![i];

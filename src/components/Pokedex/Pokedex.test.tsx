@@ -1,10 +1,10 @@
-// TODO: Implement tests after setting up mocking
-// import { render } from "@testing-library/react";
+import { render } from "test";
 
-// import { Pokedex } from "./Pokedex";
+import { Pokedex } from "./Pokedex";
 
-// test("<Pokedex />", () => {
-//   const screen = render(<Pokedex />);
-
-//   expect(screen.getByText(/Pokedex/)).toBeInTheDocument();
-// });
+test("<Pokedex /> renders with heading", () => {
+  const screen = render(<Pokedex />);
+  expect(
+    screen.getByRole("heading", { level: 1, name: "Pokedex" }),
+  ).toBeInTheDocument();
+});
