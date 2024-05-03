@@ -1,1 +1,1 @@
-export * from "./byOffset";
+export * from "./buildMockPokemons";

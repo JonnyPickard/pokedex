@@ -6,6 +6,8 @@ interface BuildMockPokemons {
   limit?: number;
 }
 
+const GEN_1_POKEMON_AMOUNT = 151;
+
 export const buildMockPokemons = ({
   offset = 0,
   limit = 9,
@@ -16,7 +18,7 @@ export const buildMockPokemons = ({
       limit: limit,
       offset: offset,
     },
-    nextOffset: offset + limit < 100 ? offset + limit : 0,
+    nextOffset: offset + limit < GEN_1_POKEMON_AMOUNT ? offset + limit : 0,
     prevOffset: offset - limit >= 0 ? offset - limit : 0,
     results: results.slice(offset, offset + limit),
     extended_results: extended_results.slice(offset, offset + limit),

@@ -58,6 +58,10 @@ export function PokemonList() {
       networkStatus !== 3 &&
       data?.pokemons?.results?.length
     ) {
+      // No more pokemon
+      if (data.pokemons.nextOffset === 0) {
+        return;
+      }
       setIsLoadingMore(true);
       fetchMore({
         variables: {
@@ -87,6 +91,7 @@ export function PokemonList() {
       });
     }
   }, [
+    data?.pokemons?.nextOffset,
     data?.pokemons?.results?.length,
     fetchMore,
     isIntersecting,

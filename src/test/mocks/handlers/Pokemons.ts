@@ -3,7 +3,7 @@ import { buildASTSchema, graphql as executeGraphQL } from "graphql";
 import { HttpResponse, graphql } from "msw";
 import Document from "schema.graphql";
 
-import { buildMockPokemons } from "../fixtures/Pokemons/buildMockPokemons";
+import { buildMockPokemons } from "../fixtures/Pokemons";
 
 const schema = buildASTSchema(Document);
 
