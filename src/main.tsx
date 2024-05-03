@@ -2,6 +2,7 @@
 import { ApolloProvider } from "@apollo/client";
 import ReactDOM from "react-dom/client";
 
+import packageJson from "../package.json";
 import App from "./App.tsx";
 import { client } from "./apolloClient";
 import "./index.css";
@@ -18,7 +19,11 @@ async function enableMocking() {
 
   // `worker.start()` returns a Promise that resolves
   // once the Service Worker is up and ready to intercept requests.
-  return worker.start();
+  // use custom homepage is required as it's nested under /pokedex.
+  // see: https://mswjs.io/docs/recipes/using-custom-homepage
+  return worker.start({
+    serviceWorker: { url: `${packageJson.homepage}/mockServiceWorker.js` },
+  });
 }
 
 enableMocking().then(() => {
