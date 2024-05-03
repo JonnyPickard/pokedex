@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { gql } from "gql";
 import { useEffect, useState } from "react";
+import { VisuallyHidden } from "styles";
 import { useIntersectionObserver } from "usehooks-ts";
 
 import { PokemonListItem } from "../PokemonListItem";
@@ -11,8 +12,6 @@ const GET_POKEMON = gql(`
   query Pokemons($limit: Int!, $offset: Int!) {
     pokemons(limit: $limit, offset: $offset) {
       count
-      next
-      previous
       nextOffset
       prevOffset
       params
@@ -59,6 +58,10 @@ export function PokemonList() {
       networkStatus !== 3 &&
       data?.pokemons?.results?.length
     ) {
+      // No more pokemon
+      if (data.pokemons.nextOffset === 0) {
+        return;
+      }
       setIsLoadingMore(true);
       fetchMore({
         variables: {
@@ -88,6 +91,7 @@ export function PokemonList() {
       });
     }
   }, [
+    data?.pokemons?.nextOffset,
     data?.pokemons?.results?.length,
     fetchMore,
     isIntersecting,
@@ -106,6 +110,7 @@ export function PokemonList() {
     <>
       {data?.pokemons?.results && (
         <>
+          <h2 css={VisuallyHidden}>All Pokemon</h2>
           <ul css={styles.PokemonList}>
             {data.pokemons.results.map(({ name, id, dreamworld }, i) => {
               const extendedResults = data.pokemons?.extended_results![i];
