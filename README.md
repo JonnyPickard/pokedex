@@ -2,7 +2,7 @@
 
 Deployed here: :hammer: [Pokedex](https://jonnypickard.github.io/pokedex/) :wrench:
 
-> NOTE: API is mocked using MSW and currently only works for Gen I Pokemon
+> NOTE: API is mocked using MSW and currently only works for Gen I Pokemon on a desktop browser
 
 ## About + Designs
 
