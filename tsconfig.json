@@ -5,7 +5,8 @@
       "components": ["./src/components"],
       "design-tokens": ["./src/styles/designTokens.ts"],
       "styles": ["./src/styles"],
-      "test": ["./src/test/utils.tsx"]
+      "test": ["./src/test/utils.tsx"],
+      "schema.graphql": ["./schema.graphql"]
     },
     "types": ["vitest/globals", "@testing-library/jest-dom"],
     "target": "ES2020",
@@ -28,6 +29,6 @@
     "strict": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "server"],
+  "include": ["src", "server", "./schema.graphql"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
