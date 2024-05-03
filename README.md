@@ -1,5 +1,11 @@
 # Pokedex
 
+Deployed here: :hammer: [Pokedex](https://jonnypickard.github.io/pokedex/) :wrench:
+
+> NOTE: API is mocked using MSW and currently only works for Gen I Pokemon
+
+## About + Designs
+
 Fun little project to test out some ideas using the [PokeAPI GraphQL API](https://github.com/PokeAPI/pokeapi?tab=readme-ov-file).
 
 <p align="center" style="padding:16px;">
