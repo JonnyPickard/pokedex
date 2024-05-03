@@ -12,8 +12,6 @@ const GET_POKEMON = gql(`
   query Pokemons($limit: Int!, $offset: Int!) {
     pokemons(limit: $limit, offset: $offset) {
       count
-      next
-      previous
       nextOffset
       prevOffset
       params
