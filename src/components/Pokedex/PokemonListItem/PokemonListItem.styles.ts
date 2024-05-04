@@ -33,9 +33,10 @@ export const PokemonInfo = css`
 `;
 
 export const PokemonImage = css`
-  width: 160px;
-  height: 160px;
+  width: 220px;
+  height: 220px;
   border-radius: 5px;
+  margin: ${SPACING.sm} 0;
   padding: ${SPACING.lg};
   background: ${GRAYSCALE.paleBlack};
 `;

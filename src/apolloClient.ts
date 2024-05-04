@@ -1,6 +1,9 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { LocalStorageWrapper, persistCache } from "apollo3-cache-persist";
 
+// NOTE: You should pass these in via env variables
+// but, considering this is a test project/ POC,
+// it doesn't seem worth the time to set up
 const apolloServerUri =
   process.env.NODE_ENV === "production"
     ? "https://localhost:4000"

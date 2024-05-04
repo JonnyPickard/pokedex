@@ -13,6 +13,7 @@ export const PokemonList = css`
   list-style: none;
   border-radius: 5px;
   padding: ${SPACING.md};
+  text-align: center;
 `;
 
 export const PokemonInfoCard = css`

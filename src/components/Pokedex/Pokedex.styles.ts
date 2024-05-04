@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { COLORS } from "design-tokens";
+import { COLORS, MEDIA } from "design-tokens";
 
 const { GRAYSCALE, RED } = COLORS;
 
@@ -12,8 +12,6 @@ export const Pokedex = css`
   box-sizing: border-box;
   position: relative;
 
-  width: ${IPHONE_PMAX_WIDTH}px;
-  height: ${IPHONE_PMAX_HEIGHT}px;
   padding-top: ${BALL_CAMERA_HEIGHT}px;
 
   background: linear-gradient(
@@ -24,6 +22,14 @@ export const Pokedex = css`
   );
   border: 4px solid ${RED.default};
   border-radius: 43px;
+  width: 100%;
+  height: 100vh;
+
+  ${MEDIA.DESKTOP} {
+    width: ${IPHONE_PMAX_WIDTH}px;
+    height: ${IPHONE_PMAX_HEIGHT}px;
+    margin: 0 auto;
+  }
 `;
 
 export const PokedexContent = css`
