@@ -1,6 +1,11 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { LocalStorageWrapper, persistCache } from "apollo3-cache-persist";
 
+const apolloServerUri =
+  process.env.NODE_ENV === "production"
+    ? "https://localhost:4000"
+    : "http://localhost:4000";
+
 const cache = new InMemoryCache({
   typePolicies: {
     Pokemons: {
@@ -32,6 +37,6 @@ persistCache({
 }).then(() => {});
 
 export const client = new ApolloClient({
-  uri: "http://localhost:4000",
+  uri: apolloServerUri,
   cache,
 });
